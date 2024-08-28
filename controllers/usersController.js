@@ -91,7 +91,8 @@ usersSearchGet = (req, res) => {
             }
         }
     });
-    
+    if (!correctUser) {
+    }
     res.render("search", { user: correctUser });
 };
 
