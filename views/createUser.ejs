@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/create" method="POST">
+        <label for="firstName">First Name: </label>
+        <input placeholder="Aigul" type="text" name="firstName" id="firstName" required>
+        <label for="lastName">Last Name: </label>
+        <input placeholder="Akhmet" type="text" name="lastName" id="lastName" required>
+        <label for="email">Email: </label>
+        <input placeholder="akhmet@example.com" type="email" name="email" id="email" required>
+        <label for="age">Age: </label>
+        <input placeholder="20" type="number" name="age" id="age">
+        <label for="bio">Bio: </label>
+        <input placeholder="I like cheese." type="text" name="bio" id="bio">
+        <button type="submit">Create user</button>
+      </form>      
+      <a href="/">Back to home</a>
+</body>
+</html>

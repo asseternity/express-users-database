@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Search Results</title>
+    </head>
+    <body>
+        <% if (user) { %>
+            <h1><%= user.firstName %> <%= user.lastName %></h1>
+            <ul>
+                <li>Email: <%= user.email %></li>
+                <li>Age: <%= user.age %></li>
+                <li>Bio: <%= user.bio %></li>
+            </ul>
+            <a href="/">Back to home</a>    
+        <% } else { %>
+            <h1>User not found</h1>
+            <a href="/">Back to home</a>  
+        <% } %>
+    </body>
+</html>
