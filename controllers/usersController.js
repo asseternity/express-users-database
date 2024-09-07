@@ -1,5 +1,6 @@
 const usersStorage = require('../storages/usersStorage');
 const { body, validationResult } = require('express-validator');
+const navLinks = require('../navLinks')
 
 const alphaErr = 'must only contain letters.'
 const lengthErr = 'must be between 1 and 10 characters.'
@@ -23,12 +24,14 @@ usersListGet = (req, res) => {
     res.render("index", {
         title: "Users List",
         users: usersStorage.getUsers(),
+        navLinks: navLinks
     });
 };
 
 usersCreateGet = (req, res) => {
     res.render("createUser", {
         title: "Create User",
+        navLinks: navLinks
     });
 };
 
@@ -40,6 +43,7 @@ usersCreatePost = [
             return res.status(400).render('createUser', {
                 title: "Create user",
                 errors: errors.array(),
+                navLinks: navLinks
             });
         }
         const { firstName, lastName, email, age, bio } = req.body;
@@ -53,6 +57,7 @@ usersUpdateGet = (req, res) => {
     res.render("updateUser", {
         title: "Update user",
         user: user,
+        navLinks: navLinks
     });
 };
 
@@ -66,6 +71,7 @@ usersUpdatePost = [
                 title: "Update user",
                 user: user,
                 errors: errors.array(),
+                navLinks: navLinks
             });
         }
         const { firstName, lastName, email, age, bio } = req.body;
@@ -93,7 +99,11 @@ usersSearchGet = (req, res) => {
     });
     if (!correctUser) {
     }
-    res.render("search", { user: correctUser });
+    res.render("search", { user: correctUser, navLinks: navLinks });
 };
 
-module.exports = { usersListGet, usersCreateGet, usersCreatePost, usersUpdateGet, usersUpdatePost, usersDeletePost, usersSearchGet }
+aboutGet = (req, res) => {
+    res.render("about", { title: "About page", navLinks: navLinks });
+}
+
+module.exports = { usersListGet, usersCreateGet, usersCreatePost, usersUpdateGet, usersUpdatePost, usersDeletePost, usersSearchGet, aboutGet }

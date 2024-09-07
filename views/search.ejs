@@ -3,6 +3,7 @@
         <title>Search Results</title>
     </head>
     <body>
+        <%- include("partials/navbar.ejs", { navLinks: navLinks }) %>
         <% if (user) { %>
             <h1><%= user.firstName %> <%= user.lastName %></h1>
             <ul>

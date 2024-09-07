@@ -3,6 +3,7 @@
         <title><%= title %></title>
     </head>
     <body>
+        <%- include("partials/navbar.ejs", { navLinks: navLinks }) %>
         <h1><%= title %></h1>
         <%- include('partials/errors.ejs') %>
         <form action="/<%= user.id %>/update" method="POST">

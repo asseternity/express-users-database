@@ -9,5 +9,6 @@ usersRouter.get("/:id/update", usersController.usersUpdateGet);
 usersRouter.post("/:id/update", usersController.usersUpdatePost);
 usersRouter.post("/:id/delete", usersController.usersDeletePost);
 usersRouter.get('/search', usersController.usersSearchGet);
+usersRouter.get('/about', usersController.aboutGet);
 
 module.exports = usersRouter;
